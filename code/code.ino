@@ -1445,6 +1445,8 @@ void handleSave() {
     String subject = "短信转发器配置已更新";
     String body = "设备配置已更新\n设备地址: " + getDeviceUrl();
     sendEmailNotification(subject.c_str(), body.c_str());
+    // 发送通知http（推送到所有启用的通道）
+    sendSMSToServer(subject.c_str(), body.c_str(), "");
   }
 }
 
@@ -2424,6 +2426,8 @@ void setup() {
     String subject = "短信转发器已启动";
     String body = "设备已启动\n设备地址: " + getDeviceUrl();
     sendEmailNotification(subject.c_str(), body.c_str());
+    // 发送通知http（推送到所有启用的通道）
+    sendSMSToServer(subject.c_str(), body.c_str(), "");
   }
 }
 
